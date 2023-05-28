@@ -12,7 +12,7 @@ const createCustomer = async function(req,res){
 
 const deleteCustomer = async function(req,res){
     try{
-        let user = await customerModel.findById(req.params.id)
+        let user = await customerModel.findOne({_id:req.params.id,status :'Active'})
         if(!user) return res.status(404).json({msg :" Customer not Exist!"})
         let saveData = await customerModel.findByIdAndUpdate(req.params.id,
             {$set :{ status: "InActive"}},
