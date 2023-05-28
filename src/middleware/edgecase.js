@@ -41,11 +41,11 @@ const card = async (req,res,next)=>{
         
         let result = await  cardModel.find().count()
         result++ 
-        let arr = (result+"").split("")
-        if(arr.length == 1) req.body["cardNumber"] = "C00"+ result 
-        else if(result.length == 2) data.cardNumber = "C0"+ result
-        else if(result.length == 3) data.cardNumber = "C"+ result
-        // console.log(req.body)
+        result  += ""
+        if(result.length == 1) req.body["cardNumber"] = "C00"+ result 
+        else if(result.length == 2)  req.body["cardNumber"]  = "C0"+ result
+        else if(result.length >= 3)  req.body["cardNumber"]  = "C"+ result
+        console.log(req.body)
         next()
     }catch(error){
         res.status(500).send({msg : error.message})
