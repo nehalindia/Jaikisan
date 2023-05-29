@@ -19,7 +19,6 @@ const customer = async function(req,res,next){
         }
 
         let emailcheck = await customerModel.findOne({ email :data.email})
-        console.log(emailcheck, data.email)
         if(emailcheck) return res.status(404).json({msg :" Email Id is already Exist!"})
         next()
     }catch(error){

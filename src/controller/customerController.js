@@ -1,7 +1,9 @@
 const customerModel = require('../models/customerModel')
+const {v4 : uuidv4} = require('uuid')
 
 const createCustomer = async function(req,res){
     try{
+        req.body.customerID = uuidv4()
         console.log(req.body)
         let saveData = await customerModel.create(req.body);
         res.send({ msg : saveData})

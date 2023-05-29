@@ -11,7 +11,7 @@ const createCard = async (req,res)=> {
 
 const getcard = async (req,res)=> {
     try{
-        let saveData = await cardModel.find({status :'Active'}).populate('customerId')
+        let saveData = await cardModel.find({status :'Active'})
         res.status(200).send({ msg : saveData})
     }catch(error){
         res.status(500).send({ msg: error.message})

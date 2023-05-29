@@ -14,7 +14,7 @@ const cardSchema = new mongoose.Schema({
     },
     vision : String,
     customerId :{
-        type : mongoose.Schema.Types.ObjectId,
+        type : String,
         ref : 'Customer'
     }
 },

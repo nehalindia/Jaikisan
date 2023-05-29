@@ -10,6 +10,7 @@ const customerSchema = new mongoose.Schema({
         required : true
     }, 
     address: String,
+    customerID : String,
     status :{
         type: String,
         enum :['Active','InActive'],
